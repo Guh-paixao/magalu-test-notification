@@ -2,6 +2,7 @@ package br.com.gustavo.magalums.entity;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -11,8 +12,14 @@ import java.time.LocalDateTime;
 @Table(name = "tb_notifications")
 @Data
 @NoArgsConstructor
-@AllArgsConstructor
 public class Notification {
+    public Notification(LocalDateTime dateTime, String destination, String message, Channel channel, Status status) {
+        this.dateTime = dateTime;
+        this.destination = destination;
+        this.message = message;
+        this.channel = channel;
+        this.status = status;
+    }
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
